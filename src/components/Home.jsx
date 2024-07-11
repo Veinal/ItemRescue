@@ -13,8 +13,13 @@ export default function Home() {
     <div>
         <NavBar/>
 
-        <div className=' flex justify-center items-center'>
-            
+        <div className=' flex justify-center items-center border-2 my-12 gap-10 h-40'>
+            <div className=' border-2 w-1/3 '>
+                <h1>ITEM RESCUE</h1>
+            </div>
+            <div className=' border-2 w-1/3'>
+                <img src="#" alt="hehehe" />
+            </div>
         </div>
 
         <div className=' flex justify-center items-center gap-6'>
