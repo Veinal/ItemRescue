@@ -3,12 +3,12 @@ import React from 'react'
 export default function Footer() {
   return (
     <div>
-        <footer class="bg-gradient-to-r from-gray-100 via-[#bce1ff] to-gray-100">
+        <footer class="bg-slate-900">
         <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
             <div>
-            <img src="#" class="mr-5 h-6 sm:h-9" alt="logo" />
-                <p class="max-w-xs mt-4 text-sm text-gray-600">
+            <img src="#" class="mr-5 h-6 sm:h-9 text-white" alt="ItemRescue" />
+                <p class="max-w-xs mt-4 text-sm text-gray-500">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, accusantium.
                 </p>
                 <div class="flex mt-8 space-x-6 text-gray-600">
@@ -46,7 +46,7 @@ export default function Footer() {
             </div>
             <div class="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4">
                 <div>
-                <p class="font-medium">
+                <p class="font-medium text-white">
                     Company
                 </p>
                 <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
@@ -57,7 +57,7 @@ export default function Footer() {
                 </nav>
                 </div>
                 <div>
-                <p class="font-medium">
+                <p class="font-medium text-white">
                     Services
                 </p>
                 <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
@@ -69,7 +69,7 @@ export default function Footer() {
                 </nav>
                 </div>
                 <div>
-                <p class="font-medium">
+                <p class="font-medium text-white">
                     Helpful Links
                 </p>
                 <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
@@ -79,7 +79,7 @@ export default function Footer() {
                 </nav>
                 </div>
                 <div>
-                <p class="font-medium">
+                <p class="font-medium text-white">
                     Legal
                 </p>
                 <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
