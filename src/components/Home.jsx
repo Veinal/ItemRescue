@@ -7,61 +7,50 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
+import lostimg from '../lostimg.jpg'
 
 export default function Home() {
   return (
     <div>
-        <NavBar/>
 
-        <div className=' flex justify-center items-center border-2 my-12 gap-10 h-40'>
-            <div className=' border-2 w-1/3 '>
-                <h1>ITEM RESCUE</h1>
+        <div className=' flex justify-center items-center  my-14 gap-6 h-96'>
+            <div className='  w-1/3'>
+                <h1 className=' font-bold text-5xl mb-4'>ITEM RESCUE</h1>
+                {/* <h2 className='text-lg mb-3'>Your Lost Items Deserve a Second Chance!</h2> */}
+                <h2 className='text-lg'>"Together, we can make every lost item a story of reunion."</h2>
             </div>
-            <div className=' border-2 w-1/3'>
-                <img src="#" alt="hehehe" />
+            <div className='  w-1/3'>
+                <img src={lostimg} alt="hehehe" />
             </div>
         </div>
 
-        <div className=' flex justify-center items-center gap-6'>
-            <Card variant="outlined" sx={{ minWidth: 275 }}>
+        <div className=' flex justify-center items-center gap-6 my-16'>
+            <Card variant="outlined" sx={{ minWidth: "25%",border:"3px solid black" }}>
             <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                Word of the Day
+                <Typography sx={{fontWeight:"bold",fontSize:"25px"}}>
+                    LOST ITEMS
                 </Typography>
-                <Typography variant="h5" component="div">
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                adjective
-                </Typography>
-                <Typography variant="body2">
-                well meaning and kindly.
-                <br />
-                {'"a benevolent smile"'}
-                </Typography>
+                <img src="#" alt="lost" />
             </CardContent>
             <CardActions>
-                <Button size="small">Learn More</Button>
+                <Link to="/lostitems">
+                    <Button size="large" variant="contained" color='primary'>More</Button>
+                </Link>
             </CardActions>
             </Card>
     
-            <Card variant="outlined" sx={{ minWidth: 275 }}>
+            <Card variant="outlined" sx={{ minWidth: "25%",border:"3px solid black" }}>
             <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                Word of the Day
+                <Typography sx={{fontWeight:"bold",fontSize:"25px"}}>
+                    FOUND ITEMS
                 </Typography>
-                <Typography variant="h5" component="div">
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                adjective
-                </Typography>
-                <Typography variant="body2">
-                well meaning and kindly.
-                <br />
-                {'"a benevolent smile"'}
-                </Typography>
+                <img src="#" alt="found" />
             </CardContent>
             <CardActions>
-                <Button size="small">Learn More</Button>
+                <Link to="/founditems">
+                    <Button size="large" variant="contained" color='primary'>More</Button>
+                </Link>
             </CardActions>
             </Card>
         </div>
