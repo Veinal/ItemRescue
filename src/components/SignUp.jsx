@@ -6,13 +6,16 @@ import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 // import Link from '@mui/material/Link';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useState } from 'react';
+import axios from 'axios';
+
 
 function Copyright(props) {
   return (
@@ -32,13 +35,26 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
+  const [signUpState,setSignUpState]=useState()
+  const navigate=useNavigate()
+
+  const HandleChange=(e)=>{
+    setSignUpState({...signUpState,[e.target.name]:e.target.value})
+  }
+  console.log(signUpState,"signupstate")
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+
+    axios.post('http://localhost:7000/api/userreg/register',signUpState)
+    .then((res)=>{
+      console.log(res.data,'res.data');
+    }).catch((err)=>{
+      console.log(err)
+    })
+
+    await navigate('/signin')
   };
 
   return (
@@ -85,6 +101,7 @@ export default function SignUp() {
                 name="userName"
                 autoComplete="userName"
                 autoFocus
+                onChange={(e)=>HandleChange(e)}
               />
               <TextField
                 margin="normal"
@@ -94,6 +111,7 @@ export default function SignUp() {
                 label="Phone number"
                 name="phone"
                 autoComplete="phone"
+                onChange={(e)=>HandleChange(e)}
               />
               <TextField
                 margin="normal"
@@ -103,6 +121,7 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={(e)=>HandleChange(e)}
               />
               <TextField
                 margin="normal"
@@ -113,6 +132,7 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e)=>HandleChange(e)}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -123,6 +143,7 @@ export default function SignUp() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onClick={handleSubmit}
               >
                 Sign In
               </Button>
