@@ -73,4 +73,4 @@ const Delete=async(req,res)=>{
 
 // const Update
 
-module.exports={Register,Login,SingleView,Delete,Update}
+module.exports={Register,Login,SingleView,Delete}

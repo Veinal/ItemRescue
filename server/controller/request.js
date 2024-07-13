@@ -65,4 +65,4 @@ const Delete = async(req,res)=>{
 
 // const Update
 
-module.exports={Insert,View,SingleView,Delete,Udpate};
+module.exports={Insert,View,SingleView,Delete};

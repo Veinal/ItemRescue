@@ -85,4 +85,4 @@ const Delete=async(req,res)=>{
 
 // const Update
 
-module.exports={Register,Login,View,SingleView,Delete,Update};
+module.exports={Register,Login,View,SingleView,Delete};

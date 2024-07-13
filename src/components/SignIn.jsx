@@ -12,7 +12,9 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
+import { Link,Navigate, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
 
 function Copyright(props) {
   return (
@@ -32,13 +34,26 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignInSide() {
+
+  const [singInState,setSignInState]=useState()
+  const navigate=useNavigate()
+
+  const handleChange=(e)=>{
+    setSignInState({...singInState,[e.target.name]:e.target.value})
+  }
+  console.log(singInState,"signinstate")
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    
+    axios.post('http://localhost:7000/api/userreg/register',singInState)
+    .then((res)=>{
+      console.log(res.data)
+      navigate('/')
+    })
+    .catch((err)=>{
+      console.log(err,"err")
+    })
   };
 
   return (
@@ -85,6 +100,7 @@ export default function SignInSide() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={(e)=>handleChange()}
               />
               <TextField
                 margin="normal"
@@ -95,6 +111,7 @@ export default function SignInSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e)=>handleChange()}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
