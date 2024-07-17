@@ -16,7 +16,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import axios from 'axios';
 
-
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -50,11 +49,12 @@ export default function SignUp() {
     axios.post('http://localhost:7000/api/userreg/register',signUpState)
     .then((res)=>{
       console.log(res.data,'res.data');
+      navigate('/signin')
     }).catch((err)=>{
       console.log(err)
     })
 
-    await navigate('/signin')
+    // await navigate('/signin')
   };
 
   return (
@@ -91,7 +91,7 @@ export default function SignUp() {
             <Typography component="h1" variant="h5">
               Sign up
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required

@@ -43,10 +43,10 @@ export default function SignInSide() {
   }
   console.log(singInState,"signinstate")
 
-  const handleSubmit = (event) => {
+  const handleSubmit =async(event) => {
     event.preventDefault();
     
-    axios.post('http://localhost:7000/api/userreg/register',singInState)
+    axios.post('http://localhost:7000/api/userreg/login',singInState)
     .then((res)=>{
       console.log(res.data)
       navigate('/')
@@ -90,7 +90,7 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -100,7 +100,7 @@ export default function SignInSide() {
                 name="email"
                 autoComplete="email"
                 autoFocus
-                onChange={(e)=>handleChange()}
+                onChange={(e)=>handleChange(e)}
               />
               <TextField
                 margin="normal"
@@ -111,7 +111,7 @@ export default function SignInSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                onChange={(e)=>handleChange()}
+                onChange={(e)=>handleChange(e)}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -122,6 +122,7 @@ export default function SignInSide() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onClick={handleSubmit}
               >
                 Sign In
               </Button>
