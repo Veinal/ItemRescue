@@ -23,10 +23,11 @@ const Login =async(req,res)=>{
         if(!user){
             return res.json({error:"Invalid credential email"});
         }
-        
-        const data=user.id;
+        if(user.password!== password){
+            return res.status(400).json({error:"Invalid email and password!!"})
+        }
         console.log(user.id);
-
+        res.json({success:true, userId:user.id})
     } 
     catch (error) {
         console.error("some error occured"+error);
